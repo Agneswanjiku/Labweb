@@ -1,9 +1,58 @@
 
 
 
-document.getElementById("button").onclick = function () {
+document.getElementById("#button").onclick = function () {
   location.href = "select.html";
+
+  alert("login successful");
+        return false;
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
