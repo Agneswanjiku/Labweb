@@ -1,11 +1,14 @@
+$( "products" ).submit(function( event ) {
+    console.log( $( this ).serializeArray() );
+    event.preventDefault();
+  });
 
 
-(document).ready(function(){
-    $("#button").click(function(){        
-        $("#products").submit(); // Submit the form
-        console.log("script ok");
-    });
-});
+
+
+
+
+
 
 
 
