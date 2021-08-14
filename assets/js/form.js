@@ -61,6 +61,15 @@ $(document).ready(function(){
 })
 
 
+ 
+// Prevent form submission
+$( "form" ).submit(function( event ) {
+	event.preventDefault();
+  });
+
+
+
+
 
 // // / save output in a variable
 // var data = $( "#tests" ).tableMatrix();
@@ -94,7 +103,13 @@ $(document).ready(function(){
 
 
 
+//function to open the next page
 
+document.getElementById("#index.html").onclick = function (){
+	location.href = "select.html"
+	alert("form filled successful")
+	return false;
+}
 
 
 
