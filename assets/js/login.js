@@ -1,25 +1,61 @@
-// function of open the next page when clicking the button
+function pageRedirect() {
+  window.location.href = "select.html";
+}  
 
-function login() {
-  if ($("#username").val() == "admin" && $("#password").val() == "password") {
-    alert("You are a valid user");
-  } else {
-    alert("You are not a valid user");
-  }
-}
+// jquery post function
+$(document).ready(function(){
+  $("button").click(function(){
+    $.post("login.html", function(data, status){
+      document.getElementById("username").innerHTML = data;
+      document.getElementById("password").innerHTML = "status" + status;
+    });
+  });
+});
 
 
 
+// form validation
 
 
-document.getElementById("#button").onclick = function () {
-  location.href = "select.html";
+function validate(){  
+  var username=document.form.username.value;  
+  var password=document.form.password.value;  
+  var status=false;  
+    
+  if(username.length<1){  
+  document.getElementById("nameloc").innerHTML=  
+  " <img src='unchecked.gif'/> Please enter your username";  
+  status=false;  
+  }else{  
+  document.getElementById("nameloc").innerHTML=" <img src='checked.gif'/>";  
+  status=true;  
+  }  
+  if(password.length<6){  
+  document.getElementById("passwordloc").innerHTML=  
+  " <img src='unchecked.gif'/> Password must be at least 6 char long";  
+  status=false;  
+  }else{  
+  document.getElementById("passwordloc").innerHTML=" <img src='checked.gif'/>";  
+  }  
+  return status;  
+  }  
 
-  alert("login successful");
-        return false;
-};
+//FUNCTION TWO FORM VALIDATION
 
+$(document).ready(function(){
+  $("#form").validate({
+    rules:{
+      username:"required"
+    }, 
+    message:{
+      username:"please  insert your username"
+    }
+  })
+})
 
+$("button").click(function(){
+  $("#form").validate();
+})
 
 
 
@@ -28,6 +64,11 @@ document.getElementById("#button").onclick = function () {
 
 
 
+// select option
+// $("Input").select(function(){
+//   $("div").text("Item selected").show().fadeOut(2000);
+//   $("div").text("Item selected").show().fadeOut(2000);
+// })
 
 
 
@@ -68,9 +109,6 @@ document.getElementById("#button").onclick = function () {
 
 
 
-// $(document).ready(function() {
-//   $("#form").validate();
-//   });
 
 
 
@@ -94,34 +132,8 @@ document.getElementById("#button").onclick = function () {
 
 
 
-// $(document).ready(function(){
-//   $("button").click(function(){
-//     $.post("demo_test_post.asp",
-//     {
-//       username: "shikonorman@gmail.com",
-//       password: "12dfg@"
-//     },
-//     function(data,status){
-//       alert("Data: " + data + "\nStatus: " + status);
-//     });
-//   });
-// });
-
-
-// function post_to_url(url, params) {
-//   var form = document.createElement('form');
-//   form.action = url;
-//   form.method = 'POST';
-
-//   /*var postParam = encodeURIComponent(params);
-//   postParam = decodeURIComponent(postParam);*/
-  
-//   var input = document.createElement('input');
-//   input.type = 'hidden';
-//   input.name = 'requestString=';
-//   input.value = params;
-//   document.body.appendChild(input);
-//   form.appendChild(input); 
-//   form.submit();
-
-//   }
+
+
+
+
+

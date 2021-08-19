@@ -15,7 +15,7 @@ $(document).ready(function(){
 	$("#button").on('click', function(){
 		var arrData = [];
 
-		// looping over each table row(tr)
+	// looping over each table row(tr)
 
 		$("#tests tr").each(function(){
 			var currentRow = $(this);
@@ -62,56 +62,63 @@ $(document).ready(function(){
 
 
  
-// Prevent form submission
-$( "form" ).submit(function( event ) {
-	event.preventDefault();
+// converting a table into a json object
+
+$(document).ready(function(){
+	$('#button').click( function() {
+	  var table = $('#tests').tableToJSON();
+	  var data = {};
+	  $.each(table, function(key, value) {
+		  var jsonKey = value.sampledimension;
+		  var map = {};
+		  map = value;
+		  map.sampledimension = undefined;
+		  data[jsonKey] = map;
+	  }); 
+	  alert(JSON.stringify(data));
+	  console.log(JSON.stringify(data));
+  });
   });
 
 
+//submit form
 
-
-
-// // / save output in a variable
-// var data = $( "#tests" ).tableMatrix();
-
-
-
-// var myCallback = function( data ){
-//     // do something with the data...
-//   };
+function pageRedirect() {
+	window.location.href = "index.html";
+  }  
   
-//   $( "#tests" ).tableMatrix( myCallback );
+  
   
 
-// ( function( $ ){
-// 	$.function.tableMatrix = function( callback ){
-// 		var matrix = [];
-// 		this.find( "tr" ).each( function( index, tableRow ) {
-// 			var row = [];
-// 			$( tableRow ).find( "td, th" ).each( function( i, value ){
-// 				row.push( $( value ).text() );
-// 			});
-// 			matrix.push( row );
-// 		});
-// 		if( callback ) {
-// 			return callback( matrix );
-// 		}
-// 		return matrix;
-// 	};
-// }( jQuery ) );
 
 
 
 
-//function to open the next page
 
-document.getElementById("#index.html").onclick = function (){
-	location.href = "select.html"
-	alert("form filled successful")
-	return false;
-}
+// delete row function
+
+$(document).ready(function(){
+	$('button').on('click', function(e){
+		e.preventDefault();
+		 var me = $(this);
+		 $.alert({
+			 title:'Alert!',
+			 content : 'Are you sure you want to delete data',
+			 buttons:{
+				 yes:function(){
+					 me.closest('tr').remove
+				 },
+				 No :function(){
+
+				 }
+			 }
+			 
+		 })
+	})
+})
 
 
+//post data
 
 
 

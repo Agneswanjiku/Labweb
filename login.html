@@ -13,12 +13,16 @@
 
 <body>
     <div class="text-monospace text-uppercase border-success shadow d-flex login-clean">
-        <form name="form"  id="form22" method="post">
+        <form name="form"  id="form" method="post">
             <h2 class="sr-only">Login Form</h2>
             <div class="illustration"><i class="icon ion-ios-navigate"></i></div>
-            <div class="form-group"><input class="form-control" type="username" name="username" placeholder="username" required=""></div>
-            <div class="form-group"><input class="form-control" type="password" name="password" placeholder="Password"></div>
-            <div class="form-group"><button onclick="select.html" class="btn btn-primary btn-block" type="submit" >Log In</button></div><a class="forgot" href="#">Forgot your email or password?</a></form>
+            <div class="form-group"><input class="form-control" type="username" id="username"  name="username" placeholder="username" required=""></div>
+            <div class="form-group"><input class="form-control" type="password" id="password" name="password" placeholder="Password"></div>
+            <div class="form-group">
+                <button  class="btn btn-primary btn-block" type="button" id="button"  onclick="pageRedirect()" >Log In</button>
+            </div><a class="forgot" href="changepass.html">Forgot your email or password?</a></form>
+            
+
     </div>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>

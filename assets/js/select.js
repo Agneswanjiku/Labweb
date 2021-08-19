@@ -4,37 +4,31 @@ $("products").submit(function(event){
 });
 
 
+$("select").change(function(){
+  document.getElementById("loc").innerHTML="You selected:" + document.getElementById("products").nodeValue;
+  document.getElementById("loc").innerHTML="You selected:" + document.getElementById("type").nodeValue;
+  document.getElementById("loc").innerHTML="You selected:" + document.getElementById("sizes").nodeValue;
+
+
+});
+
+// function for selecting mutiple products
+$("select option:selected").each(function(){
+  selectedValues += $(this).val() + ',';
+});
 
 
 
- //button fading after product selection
 
-  var form = $('#form');
-  var button = $ ('#button');
-
-  button .on('click', function(){
-    form.toggle();
-    form.is(":visible") ? $(this).html('hide') : $(this).html('show');
-  });
 
 
 //submit form
 
-$(document).ready(function(){
-  $("#button").click(function(){
-    $('#form').submit();
-  });
-});
+function pageRedirect() {
+  window.location.href = "form.html";
+}  
 
 
-
-
-
-   
-// Prevent form submission
-$( "form" ).submit(function( event ) {
-  event.preventDefault();
-});
 
 
 
