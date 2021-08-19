@@ -14,66 +14,84 @@ $(document).ready(function(){
 
 
 
-// form validation
 
-
-function validate(){  
-  var username=document.form.username.value;  
-  var password=document.form.password.value;  
-  var status=false;  
-    
-  if(username.length<1){  
-  document.getElementById("nameloc").innerHTML=  
-  " <img src='unchecked.gif'/> Please enter your username";  
-  status=false;  
-  }else{  
-  document.getElementById("nameloc").innerHTML=" <img src='checked.gif'/>";  
-  status=true;  
-  }  
-  if(password.length<6){  
-  document.getElementById("passwordloc").innerHTML=  
-  " <img src='unchecked.gif'/> Password must be at least 6 char long";  
-  status=false;  
-  }else{  
-  document.getElementById("passwordloc").innerHTML=" <img src='checked.gif'/>";  
-  }  
-  return status;  
-  }  
 
 //FUNCTION TWO FORM VALIDATION
 
-$(document).ready(function(){
-  $("#form").validate({
-    rules:{
-      username:"required"
-    }, 
-    message:{
-      username:"please  insert your username"
+
+// Document is ready
+$(document).ready(function () { 
+     
+// Validate Username
+    $('#usercheck').hide();    
+    let usernameError = true;
+    $('#username').keyup(function () {
+        validateUsername();
+    });
+      
+    function validateUsername() {
+      let usernameValue = $('#username').val();
+      if (usernameValue.length == '') {
+      $('#usercheck').show();
+          usernameError = false;
+          return false;
+      } 
+      else if((usernameValue.length < 3)|| 
+              (usernameValue.length > 10)) {
+          $('#usercheck').show();
+          $('#usercheck').html
+("**length of username must be between 3 and 14 and the @ sign include");
+          usernameError = false;
+          return false;
+      } 
+      else {
+          $('#usercheck').hide();
+      }
     }
-  })
-})
-
-$("button").click(function(){
-  $("#form").validate();
-})
+});
 
 
+// Validate Password
+$('#passcheck').hide();
+let passwordError = true;
+$('#password').keyup(function () {
+    validatePassword();
+});
+function validatePassword() {
+    let passwrdValue = 
+        $('#password').val();
+    if (passwrdValue.length == '') {
+        $('#passcheck').show();
+        passwordError = false;
+        return false;
+    } 
+    if ((passwrdValue.length < 6)|| 
+        (passwrdValue.length > 10)) {
+        $('#passcheck').show();
+        $('#passcheck').html
+("**length of your password must be between 6 and 10");
+        $('#passcheck').css("color", "red");
+        passwordError = false;
+        return false;
+    } else {
+        $('#passcheck').hide();
+    }
+}
+      
 
 
 
 
-
-
-// select option
-// $("Input").select(function(){
-//   $("div").text("Item selected").show().fadeOut(2000);
-//   $("div").text("Item selected").show().fadeOut(2000);
-// })
-
-
-
-
-
+$('#button').click(function(){
+  validateUsername();
+  validatePassword();
+  if((usernameError == true)  &&
+  passwordError == true)
+   return true;{
+    
+     
+   } 
+}) 
 
 
 
