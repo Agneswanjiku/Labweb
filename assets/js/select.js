@@ -4,13 +4,36 @@ $("products").submit(function(event){
 });
 
 
-$("select").change(function(){
-  document.getElementById("loc").innerHTML="You selected:" + document.getElementById("products").nodeValue;
-  document.getElementById("loc").innerHTML="You selected:" + document.getElementById("type").nodeValue;
-  document.getElementById("loc").innerHTML="You selected:" + document.getElementById("sizes").nodeValue;
+// $("select").change(function(){
+//   document.getElementById("loc").innerHTML="You selected:" + document.getElementById("products").nodeValue;
+//   document.getElementById("loc").innerHTML="You selected:" + document.getElementById("type").nodeValue;
+//   document.getElementById("loc").innerHTML="You selected:" + document.getElementById("sizes").nodeValue;
 
 
+// });
+
+//selecting products using id
+
+$(document).ready(function(){
+  $("button").click(function(){
+    $("#products").hide();
+  });
 });
+
+$(document).ready(function(){
+  $("button").click(function(){
+    $("#type").hide();
+  });
+});
+
+
+$(document).ready(function(){
+  $("button").click(function(){
+    $("#sizes").hide();
+  });
+});
+
+
 
 // function for selecting mutiple products
 $("select option:selected").each(function(){
