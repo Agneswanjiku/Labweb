@@ -14,6 +14,15 @@ $(document).ready(function(){
 
 
 
+$(function () {
+  $("username, #password").WaterMark();
+  $("#username").WaterMark({
+      WaterMarkTextColor: '#8B8B8B'
+  });
+});
+
+
+
 
 
 //FUNCTION TWO FORM VALIDATION
@@ -78,6 +87,8 @@ function validatePassword() {
     }
 }
       
+
+
 
 
 
