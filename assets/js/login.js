@@ -87,12 +87,7 @@ function validatePassword() {
     }
 }
       
-
-
-
-
-
-
+//button click function effect
 $('#button').click(function(){
   validateUsername();
   validatePassword();

@@ -22,6 +22,7 @@ $(document).ready(function(){
   });
 });
 
+
 // function for selecting mutiple products
 $("select option:selected").each(function(){
   selectedValues += $(this).val() + ',';
